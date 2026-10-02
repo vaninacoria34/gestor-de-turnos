@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Calendario - Gestor de Turnos</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/agenda.css" />
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h1>&#9638; Gestor de Turnos</h1>
+      <nav id="menu"></nav>
+    </aside>
+    <main class="main">
+      <div class="agenda-topbar"><span>Planificación del equipo</span><span id="perfil"></span></div>
+      <header class="agenda-heading">
+        <div><p class="eyebrow">ORGANIZACIÓN DEL EQUIPO</p><h2 id="titulo">Calendario semanal</h2><p id="periodo"></p></div>
+        <div class="date-controls">
+          <button class="btn btn-secundario" onclick="mover(-1)" aria-label="Período anterior">&#8249;</button>
+          <button class="btn btn-secundario" onclick="irHoy()">Hoy</button>
+          <button class="btn btn-secundario" onclick="mover(1)" aria-label="Período siguiente">&#8250;</button>
+        </div>
+      </header>
+      <div class="cal-toolbar">
+        <div class="view-switch"><button class="btn activo" id="btn-semana" onclick="setVista('semana')" aria-pressed="true">Semana</button><button class="btn btn-secundario" id="btn-mes" onclick="setVista('mes')" aria-pressed="false">Mes</button></div>
+        <input type="search" id="buscar-empleado" placeholder="Buscar empleado…" aria-label="Buscar empleado" />
+        <button class="btn btn-secundario" id="btn-notificar-todos" onclick="notificarTodos()" hidden>📱 Notificar turnos a todos</button>
+        <button class="btn" id="btn-generar" onclick="generar()" hidden>+ Generar turnos</button>
+        <button class="btn btn-secundario" id="btn-asignar" onclick="abrirAsignacion()" hidden>Asignar turno</button>
+      </div>
+      <div id="estado-agenda" role="status" aria-live="polite"></div>
+      <section class="agenda-stats" id="agenda-stats" aria-label="Resumen del período"></section>
+      <section class="agenda-panel" aria-label="Turnos del equipo"><div id="calendario" aria-busy="true"></div>
+        <div class="agenda-legend"><span><i class="dot manana"></i>Mañana</span><span><i class="dot tarde"></i>Tarde</span><span><i class="dot descanso"></i>Descanso</span><span>— Sin asignar</span></div>
+      </section>
+      <section class="agenda-panel coverage-panel" id="cobertura" aria-label="Cobertura diaria"></section>
+    </main>
+  </div>
+
+  <dialog id="modal-whatsapp" aria-labelledby="titulo-whatsapp">
+    <h3 id="titulo-whatsapp">Avisos por WhatsApp</h3>
+    <p>En modo simple, abrí cada chat y presioná Enviar en WhatsApp.</p>
+    <div id="lista-whatsapp"></div>
+    <form method="dialog"><button class="btn btn-secundario">Cerrar</button></form>
+  </dialog>
+  <!-- Modal cambiar turno -->
+  <dialog id="modal-cambio" style="border:none;border-radius:12px;padding:24px;min-width:340px">
+    <h3>Cambiar turno</h3><br />
+    <label>Tipo nuevo
+      <select id="mc-tipo">
+        <option value="manana">Mañana</option>
+        <option value="tarde">Tarde</option>
+      </select>
+    </label><br /><br />
+    <label>Fecha nueva <input type="date" id="mc-fecha" /></label><br /><br />
+    <label>Motivo del cambio <textarea id="mc-motivo" rows="2"
+        style="width:100%;border:1px solid #d1d5db;border-radius:6px;padding:8px"></textarea></label><br /><br />
+    <button class="btn" onclick="confirmarCambio()">Guardar cambio</button>
+    <button class="btn btn-secundario" onclick="cancelarTurno()">Eliminar turno</button>
+    <button class="btn btn-secundario" onclick="document.getElementById('modal-cambio').close()">Cancelar</button>
+  </dialog>
+  <dialog id="modal-asignar" style="border:0;border-radius:12px;padding:24px;width:420px">
+    <h3>Asignar turno</h3>
+    <form id="form-asignar" style="display:grid;gap:16px;margin-top:20px">
+      <label>Empleado<select id="as-empleado" required></select></label>
+      <label>Fecha<input type="date" id="as-fecha" required></label>
+      <label>Turno<select id="as-tipo"><option value="manana">Mañana</option><option value="tarde">Tarde</option></select></label>
+      <label>Motivo<input id="as-motivo" placeholder="Opcional"></label>
+      <p id="as-error" role="alert" style="color:#ad2525"></p>
+      <button class="btn" type="submit">Guardar turno</button>
+      <button class="btn btn-secundario" type="button" onclick="document.getElementById('modal-asignar').close()">Cancelar</button>
+    </form>
+  </dialog>
+
+  <script src="../js/api.js"></script><script src="../js/interfaz.js"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/calendario.js"></script>
+</body>
+
+</html>

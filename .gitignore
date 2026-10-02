@@ -1,0 +1,33 @@
+# Backend
+backend/node_modules/
+backend/gestor.db
+backend/gestor.db-shm
+backend/gestor.db-wal
+backend/install.log
+backend/_smoke.txt
+backend/_cleanFinal.txt
+backend/_d.txt
+backend/_tree.txt
+backend/.env
+backend/_backup/
+*.sqlitebak
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.*
+!.env.example
+.continue/
+
+# Frontend (si se usa node en el futuro)
+gestor-turnos/node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local browser checks and screenshots
+tmp/

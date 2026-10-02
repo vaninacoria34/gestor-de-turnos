@@ -1,0 +1,45 @@
+/* Paleta compartida: azul, gris y blanco. */
+:root {
+  --verde: #0866ee;
+  --verde-claro: #a8ccff;
+  --verde-oscuro: #102a4c;
+  --gris: #6b7280;
+  --gris-oscuro: #374151;
+  --gris-fondo: #f3f4f6;
+  --blanco: #ffffff;
+  --peligro: #c62828;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body { background: var(--gris-fondo); color: var(--gris-oscuro); }
+
+/* Layout con sidebar */
+.app { display: flex; min-height: 100vh; }
+.sidebar { width: 230px; background: var(--verde-oscuro); color: var(--blanco); padding: 20px 0; }
+.sidebar h1 { font-size: 1.1rem; padding: 0 20px 20px; border-bottom: 1px solid rgba(255,255,255,.15); }
+.sidebar nav a { display: block; padding: 12px 20px; color: #c5d4e8; text-decoration: none; }
+.sidebar nav a:hover, .sidebar nav a.activo { background: var(--verde); color: var(--blanco); }
+
+.main { flex: 1; min-width: 0; padding: 24px; }
+.main header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+
+/* Componentes */
+.tarjeta { background: var(--blanco); border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+.grid-resumen { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+
+.btn { background: var(--verde); color: var(--blanco); border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
+.btn:hover { background: var(--verde-oscuro); }
+.btn-secundario { background: var(--gris); }
+
+table { width: 100%; border-collapse: collapse; background: var(--blanco); }
+th { background: var(--gris-fondo); color: var(--gris); text-align: left; }
+th, td { padding: 12px; border-bottom: 1px solid #e5e7eb; }
+
+input, select { padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; width: 100%; }
+input:focus, select:focus { outline: 2px solid var(--verde-claro); border-color: var(--verde); }
+
+.etiqueta { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: .78rem; }
+.etiqueta.verde { background: #e8f5e9; color: var(--verde-oscuro); }
+.etiqueta.gris { background: #e5e7eb; color: var(--gris-oscuro); }
+.etiqueta.rojo { background: #ffebee; color: var(--peligro); }

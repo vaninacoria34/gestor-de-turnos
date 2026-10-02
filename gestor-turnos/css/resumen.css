@@ -1,0 +1,13 @@
+.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.intro{color:#627694;margin-top:10px;font-size:14px}.resumen-stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+.resumen-columns{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(280px,1fr);gap:24px;align-items:start}
+.panel-heading{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:24px;border-bottom:1px solid #edf1f6}
+.panel-heading h3{font-size:17px;letter-spacing:-.3px}.panel-heading p{margin-top:6px;font-size:12px;color:#627694}
+.panel-heading a,.panel-footer{color:#0866ee;font-size:12px;font-weight:600;text-decoration:none}.panel-heading a:hover,.panel-footer:hover{text-decoration:underline}
+.table-scroll{overflow:auto}.today-table{min-width:560px}.today-table th{padding:14px 20px;background:#f8fafd;color:#627694;font-size:12px;font-weight:600}.today-table td{padding:20px;font-size:13px;border-color:#edf1f6}.today-table .employee{min-width:150px}.today-table td:nth-child(3){white-space:nowrap;color:#526784}
+.turno-pill{display:inline-block;border-radius:6px;padding:7px 10px;font-size:12px;font-weight:600}
+.request-item{padding:20px 24px;border-bottom:1px solid #edf1f6}.request-item h4{font-size:14px;margin-bottom:10px}.request-change{font-size:12px;color:#526784;line-height:1.7}.request-item p{margin-top:10px;color:#627694;font-size:12px;line-height:1.6;overflow-wrap:anywhere}.panel-footer{display:block;padding:20px 24px;text-align:center}
+.coverage-summary{margin-top:24px}#cobertura-hoy{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:24px}.coverage-card{border:1px solid #e1e8f1;border-radius:8px;padding:18px}.coverage-card h4{font-size:14px;margin-bottom:8px}.coverage-card p{color:#627694;font-size:12px}.coverage-card strong{display:block;font-size:22px;margin:14px 0 10px}.coverage-card .coverage-state{color:#23764f}.coverage-card.shortfall{background:#fffaf0;border-color:#f2d99e}.coverage-card.shortfall .coverage-state{color:#885c0a}
+#estado-resumen:not(:empty){padding:14px;margin-bottom:16px;border-radius:8px;background:#eaf2ff;color:#304969}#reintentar{margin-bottom:20px}[hidden]{display:none!important}
+@media(max-width:1100px){.resumen-columns{grid-template-columns:1fr}}
+@media(max-width:760px){.resumen-stats{grid-template-columns:1fr 1fr}#cobertura-hoy{grid-template-columns:1fr;padding:16px}.panel-heading{padding:18px}}
